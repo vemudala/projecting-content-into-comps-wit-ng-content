@@ -1,0 +1,27 @@
+<div class="container">
+  
+    <app-cockpit (serverCreated)="onServerAdded($event)"
+    (blueprintCreated)="onBlueprintAdded($event)"
+    ></app-cockpit> 
+    <!-- any name like serverCreated on clik listen to event , pass method and $event to get data -->
+  <div class="row">
+    <div class="col-md-12 col-xs-12">
+      <!-- <div *ngFor="let serverElement of serverElements"> {{serverElement.name}}</div> -->
+      <app-server-element 
+      *ngFor="let serverElement of serverElements" 
+      [srvElement]="serverElement">
+    <!-- here ng content data added whatever we add inside selector that will be ng content -->
+      <p> 
+        <strong *ngIf="serverElement.type==='server'" style="color:chocolate">
+     {{serverElement.desc}}
+      </strong>
+     <em  *ngIf="serverElement.type==='blue'" > 
+     {{serverElement.desc}}
+     </em>
+ </p> 
+ <!-- end -->
+    </app-server-element>
+
+      </div>
+  </div> 
+</div> 
