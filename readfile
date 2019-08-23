@@ -1,1 +1,32 @@
 ngcontent can be used for reusable data such as making tab menu
+
+
+app.component.html
+<app-server-element 
+      *ngFor="let serverElement of serverElements" 
+      [srvElement]="serverElement">
+    <!-- here ng content data added whatever we add inside selector that will be ng content -->
+      <p> 
+        <strong *ngIf="serverElement.type==='server'" style="color:chocolate">
+     {{serverElement.desc}}
+      </strong>
+     <em  *ngIf="serverElement.type==='blue'" > 
+     {{serverElement.desc}}
+     </em>
+ </p> 
+ <!-- end -->
+    </app-server-element>
+    
+    
+    
+    in server component.html
+     <ng-content></ng-content>   //removed below data and pasted in app component and here we added ngcontent tag thatsall
+ //     <!-- ng-content is used to project content into component -->
+//<!-- <p>   // we are replacing this commented content in app compoenet
+ //  <strong *ngIf="element.type==='server'" style="color:chocolate">
+//    {{element.desc}}
+ //    </strong>
+ //   <em  *ngIf="element.type==='blue'" > 
+ //   {{element.desc}}
+ //   </em>
+//</p> -->
